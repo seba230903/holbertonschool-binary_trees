@@ -11,5 +11,5 @@
 
 ### Authors
 
-Sebastian Lopez
-Gaston Larroque
+- Sebastian Lopez
+- Gaston Larroque
