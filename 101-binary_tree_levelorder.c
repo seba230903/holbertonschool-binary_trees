@@ -15,6 +15,9 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 
 	if ((tree->left || tree->right) && !tree->parent)
 		(*func)(tree->n);
+	else if	(!tree->parent)
+		(*func)(tree->n);
+
 	if (tree->left)
 		(*func)(tree->left->n);
 	if (tree->right)
