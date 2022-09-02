@@ -9,22 +9,23 @@
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int n = 0;
+	int n = 1, n_l = 1, n_r = 1;
 
 	if (!tree)
 		return (0);
 
-	if (tree->left)
-		n = binary_tree_is_full(tree->left);
-	if (tree->right)
-		n = binary_tree_is_full(tree->right);
+	if ((tree->left || tree->right) && (!tree->left || !tree->right))
+		return (0);/*return if a node doesn't exists*/
 
-	if (tree->parent)
-	{
-	if ((!tree->left || !tree->right)) /*si no existe algun nodo*/
-		n = 0;
-	else
+	if (tree->left) /*left side tree*/
+		n_l = binary_tree_is_full(tree->left);
+	if (tree->right) /*right side tree*/
+		n_r = binary_tree_is_full(tree->right);
+
+	if (n_l && n_r)
 		n = 1;
-	}
+	else
+		n = 0;
+
 	return (n);
 }
